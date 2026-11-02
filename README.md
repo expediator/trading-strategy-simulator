@@ -1,47 +1,45 @@
+<div align="center">
+
 # 📈 Trading Strategy Simulator
 
-Backtests a classic **SMA 50/200 golden-cross strategy** on real stock data using Yahoo Finance, then outputs a P&L report and price chart.
+**SMA 50/200 golden-cross backtester on real Yahoo Finance data**
 
-**Source:** [github.com/expediator/trading-strategy-simulator](https://github.com/expediator/trading-strategy-simulator)
+[![GitHub](https://img.shields.io/badge/GitHub-expediator%2Ftrading--strategy--simulator-181717?style=flat-square&logo=github)](https://github.com/expediator/trading-strategy-simulator)
+[![Python](https://img.shields.io/badge/Python_3.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)](https://pandas.pydata.org)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=flat-square)](https://matplotlib.org)
+[![yfinance](https://img.shields.io/badge/yfinance-239120?style=flat-square)](https://pypi.org/project/yfinance/)
+
+Backtests a classic SMA golden-cross strategy on any stock ticker and outputs a full P&L report + price chart.
+
+</div>
 
 ---
 
-## Strategy: Golden Cross / Death Cross
+## Strategy
 
-- **Golden Cross** — 50-day SMA crosses **above** 200-day SMA → **BUY signal**
-- **Death Cross** — 50-day SMA crosses **below** 200-day SMA → **SELL signal**
+| Signal | Condition | Action |
+|--------|-----------|--------|
+| Golden Cross | SMA-50 crosses **above** SMA-200 | BUY |
+| Death Cross | SMA-50 crosses **below** SMA-200 | SELL |
 
-This is a well-known momentum strategy used by retail and institutional traders.
-
-## What It Does
-
-1. Downloads historical OHLCV data from Yahoo Finance for any stock ticker
-2. Computes SMA-50 and SMA-200 rolling averages
-3. Detects crossover points (buy/sell signals)
-4. Simulates a portfolio starting from a configurable capital amount
-5. Outputs:
-   - Total return (%)
-   - Number of trades
-   - Win rate
-   - Max drawdown
-   - Matplotlib chart of price + SMAs + buy/sell markers
-
-## Usage
+## Quick Start
 
 ```bash
 pip install pandas yfinance matplotlib
 python trading_sim.py
 ```
 
-Edit the constants at the top of `trading_sim.py`:
+Edit constants at the top of `trading_sim.py`:
+
 ```python
-TICKER  = 'AAPL'     # any Yahoo Finance ticker
+TICKER  = 'AAPL'        # any Yahoo Finance ticker
 START   = '2018-01-01'
 END     = '2024-01-01'
-CAPITAL = 10000      # starting portfolio in USD
+CAPITAL = 10000
 ```
 
-## Output
+## Sample Output
 
 ```
 Ticker: AAPL | 2018-01-01 → 2024-01-01
@@ -53,7 +51,7 @@ Wins / Losses:     5 / 3
 Max drawdown:      -18.4%
 ```
 
-A Matplotlib window opens showing the price chart with SMA lines and buy/sell arrows.
+A Matplotlib window opens with price chart, SMA-50, SMA-200, and buy/sell arrows.
 
 ## Files
 
@@ -63,9 +61,10 @@ trading-strategy-simulator/
 └── README.md
 ```
 
-## Limitations
+> **Disclaimer:** Past performance does not predict future results. No transaction costs or slippage modelled. Not financial advice.
 
-- Past performance does not predict future results
-- SMA strategies underperform in sideways/choppy markets
-- No transaction costs, slippage, or taxes modelled
-- For educational purposes only — not financial advice
+---
+
+<div align="center">
+An <strong>Expediator Inc.</strong> project · © 2026 · <a href="https://expediator.github.io/resume/">Portfolio</a>
+</div>
